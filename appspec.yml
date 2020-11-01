@@ -3,19 +3,15 @@ version: 0.0
 os: linux
 
 files: 
-  - source: /target/*.jar
-    destination: /home/ec2-user
-  - source: /scripts/*.sh
-    destination: /home/ec2-user/scripts
-  - source: appspec.yml
+  - source: /
     destination: /home/ec2-user
     
 hooks:
   ApplicationStop:
-    - location: /home/ec2-user/scripts/stop.sh
+    - location: stop.sh
       timeout: 200
       runas: ec2-user
   ApplicationStart:
-    - location: /home/ec2-user/scripts/start.sh
+    - location: start.sh
       timeout: 200
       runas: ec2-user
