@@ -3,21 +3,15 @@ version: 0.0
 os: linux
 
 files: 
-  - source: aws-pipeline-example-0.0.1-SNAPSHOT.jar
-    destination: /home/ec2-user/aws-pipeline-example-0.0.1-SNAPSHOT.jar
-  - source: start.sh
-    destination: /home/ec2-user/start.sh
-  - source: stop.sh
-    destination: /home/ec2-user/stop.sh
-  - source: appspec.yml
-    destination: /home/ec2-user/appspec.yml
+  - source: /
+    destination: /home/ec2-user
     
 hooks:
   ApplicationStop:
     - location: stop.sh
-      timeout: 200
-      runas: ec2-user
+      timeout: 300
+      runas: root
   ApplicationStart:
     - location: start.sh
-      timeout: 200
-      runas: ec2-user
+      timeout: 300
+      runas: root
