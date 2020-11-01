@@ -1,0 +1,16 @@
+phases:
+  install:
+    runtime-versions:
+      java: coretto8
+  build:
+    commands:
+      - mvn package
+
+artifacts:
+  files:
+    - target/*.jar
+  discard-paths: yes
+
+cache:
+  paths:
+    - '/root/.m2/**/*'
