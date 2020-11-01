@@ -5,3 +5,13 @@ os: linux
 files: 
   - source: /
     destination: /home/ec2-user
+    
+hooks:
+  ApplicationStop:
+    - location: stop.sh
+      timeout: 200
+      runas: ec2-user
+  ApplicationStart:
+    - location: start.sh
+      timeout: 200
+      runas: ec2-user
