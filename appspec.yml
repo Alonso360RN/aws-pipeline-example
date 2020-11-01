@@ -7,6 +7,10 @@ files:
     destination: /home/ec2-user
     
 hooks:
+  AfterInstall:
+    - location: add_privileges.sh
+      timeout: 300
+      runas: root
   ApplicationStop:
     - location: stop.sh
       timeout: 300
