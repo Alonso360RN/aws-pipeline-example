@@ -1,0 +1,21 @@
+version: 0.0
+
+os: linux
+
+files: 
+  - source: /
+    destination: /home/ec2-user
+    
+hooks:
+  AfterInstall:
+  - location: add_privileges.sh
+    timeout: 300
+    runas: sudo
+  ApplicationStart:
+  - location: start.sh
+    timeout: 300
+    runas: sudo
+  ApplicationStop:
+  - location: stop.sh
+    timeout: 300
+    runas: sudo
