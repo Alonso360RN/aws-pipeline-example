@@ -5,9 +5,3 @@ os: linux
 files: 
   - source: /
     destination: /home/ec2-user/aws-pipeline-example
-    
-hooks:
-  ApplicationStart:
-  - location: start.sh
-    timeout: 300
-    runas: root
